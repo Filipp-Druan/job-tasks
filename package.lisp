@@ -1,5 +1,10 @@
 (defpackage :job-tasks
-  (:use :cl))
+  (:use :cl :alexandria)
+  (:export 
+           ; Task 2
+           :delete-from-pos
+           :delete-from-pos-on-level
+           :task-2))
 
 (defpackage :job-tasks-tests
-  (:use :cl :parachute))
+  (:use :cl :parachute :job-tasks))
