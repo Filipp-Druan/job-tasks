@@ -2,20 +2,28 @@
 
 (define-test c*r-search
     (is equal
+        '()
+        (c*r-search 'A
+                    'A))
+    
+    (is equal
+        :not-found
+        (c*r-search '))
+    
+    (is equal
         '(car)
         (c*r-search '(A)
                     'A))
 
     (is equal
-        '(car cdr)
+        '(cdr car)
         (c*r-search '(B A)
                     'A))
 
     (is equal
-        '(car car cdr car cdr)
+        '(cdr car cdr car car)
         (c*r-search '(B ((C) (A)))
                     'A)))
-
 
 (defun dfp (list pos)
     (delete-from-pos list pos))
