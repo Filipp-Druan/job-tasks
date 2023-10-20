@@ -8,7 +8,8 @@
     
     (is equal
         :not-found
-        (c*r-search '))
+        (c*r-search '(B ((C) (A)))
+                    'Q))
     
     (is equal
         '(car)
