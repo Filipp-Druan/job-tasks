@@ -57,6 +57,13 @@
       (dfp-1 '(1 2 3 4 5)
              1)))
 
+(define-test task-1
+  (let ((answer (task-1)))
+    (is equal
+        'job-tasks:X
+        (c*r-get *task-1-list*
+                 answer))))
+
 (define-test task-2
   (is equal
       '(c (a ((b) a) a) (a d (a) (b (b a (b) a z) h a a (b) a) a))
