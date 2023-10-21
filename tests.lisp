@@ -70,3 +70,12 @@
       (task-2 '(c (a ((b) a (b)) a) (a d (a) (b (b a (b) a z) a h a a (b) a)a))
               3
               3)))
+
+(defun ~= (a b)
+  (< (abs (- a b))
+     0.0001))
+
+(define-test task-3
+  (is ~=
+      (S-etalon 5)
+      (task-3 5 10000)))
