@@ -12,9 +12,15 @@
 
 ; Найдём общее решение: напишем функцию, которая принимает дерево cons-ячеек и объект, путь к которому нужно найти, после чего находит последовательность символов car и cdr, которая служит путём к искомому объекту.
 
+(defun c*r-get (tree path)
+    "The function takes a tree and a path to an element (the path is a list of car and cdr). Returns the element to which the path leads."
+    (let ((res tree))
+        (loop for f in path
+              do (setf res (funcall f res)))))
 
 
 (defun c*r-search (tree elm)
+    "The function takes a tree, the element to be found. Returns the path to this element in the tree (the path is a list of cards and cdrs). If the element is not found, returns the symbol :not-found."
     (cond ((eql tree elm)
            nil)
 
