@@ -1,6 +1,6 @@
 (defpackage :job-tasks
   (:use :cl :alexandria)
-  (:export 
+  (:export :c*r-search
            ; Task 2
            :delete-from-pos
            :delete-from-pos-on-level
