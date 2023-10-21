@@ -1,10 +1,12 @@
 (in-package job-tasks-tests)
 
+(defun s-a (tree)
+    (c*r-search tree 'A))
+
 (define-test c*r-search
     (is equal
         '()
-        (c*r-search 'A
-                    'A))
+        (s-a 'A))
     
     (is equal
         :not-found
@@ -13,18 +15,15 @@
     
     (is equal
         '(car)
-        (c*r-search '(A)
-                    'A))
+        (s-a '(A)))
 
     (is equal
         '(cdr car)
-        (c*r-search '(B A)
-                    'A))
+        (s-a '(B A)))
 
     (is equal
         '(cdr car cdr car car)
-        (c*r-search '(B ((C) (A)))
-                    'A)))
+        (s-a '(B ((C) (A))))))
 
 (defun dfp (list pos)
     (delete-from-pos list pos))
@@ -58,9 +57,9 @@
         (dfp-1 '(1 2 3 4 5)
                1)))
 
-(define-test test-2
+(define-test task-2
     (is equal
         '(c (a ((b) a) a) (a d (a) (b (b a (b) a z) h a a (b) a) a))
-        (foo '(c (a ((b) a (b)) a) (a d (a) (b (b a (b) a z) a h a a (b) a)a))
-             3
-             3)))
+        (task-2 '(c (a ((b) a (b)) a) (a d (a) (b (b a (b) a z) a h a a (b) a)a))
+                3
+                3)))
