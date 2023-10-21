@@ -17,12 +17,14 @@
 
 
 (defun delete-from-pos (list pos &key (start-pos 0))
+  "The function removes list element that are at a given position. You can specify from what number the counting of elements begins."
   (loop for i from start-pos
         for elm in list
         unless (= i pos)
           collect elm))
 
 (defun delete-from-pos-on-level (list pos level &key (start-pos 0) (start-level 1))
+  "The function removes elements that are in the pos position of the list at the nesting level level. You can specify from what numbers the counting of elements and levels begins."
   (if (= level start-level)
       (delete-from-pos list pos :start-pos start-pos)
       (loop for elm in list
