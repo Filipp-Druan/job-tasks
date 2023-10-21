@@ -7,5 +7,5 @@
   :components ((:file "package")
                (:file "task-1")
                (:file "task-2")
-               ;(:file "task-3.lisp")
+               (:file "task-3")
                (:file "tests"))) ; Обычно под тесты определяется отдельная система.
