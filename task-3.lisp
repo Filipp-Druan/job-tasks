@@ -1,4 +1,4 @@
-(in-package job-tasks-tests)
+(in-package job-tasks)
 
 #| Задание 3
 Определите макрос для цикла do-range, реализующий итерационный
