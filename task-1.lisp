@@ -7,8 +7,8 @@
 |#
 
 ; Решить задание в частном случае легко, вот ответ:
-(defvar *lst* '(((A B) (()) (() () () (((X) C) D) E F)) (G H)))
-(car (car (car (car (cdr (cdr (cdr (car (cdr (cdr (car *lst*)))))))))))
+(defvar *task-1-list* '(((A B) (()) (() () () (((X) C) D) E F)) (G H)))
+(car (car (car (car (cdr (cdr (cdr (car (cdr (cdr (car *task-1-list*)))))))))))
 
 ; Найдём общее решение: напишем функцию, которая принимает дерево cons-ячеек и объект, путь к которому нужно найти, после чего находит последовательность символов car и cdr, которая служит путём к искомому объекту.
 
@@ -16,7 +16,9 @@
   "The function takes a tree and a path to an element (the path is a list of car and cdr). Returns the element to which the path leads."
   (let ((res tree))
     (loop for f in path
-          do (setf res (funcall f res)))))
+          do (ic res)
+             (setf res (funcall f res)))
+    res))
 
 
 (defun c*r-search (tree elm)
@@ -38,3 +40,7 @@
                (return-from c*r-search (cons 'cdr path)))))
         (t
          :not-found)))
+
+(defun task-1 ()
+  (c*r-search *task-1-list*
+              'X))
