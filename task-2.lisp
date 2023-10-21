@@ -17,24 +17,24 @@
 
 
 (defun delete-from-pos (list pos &key (start-pos 0))
-    (loop for i from start-pos
-          for elm in list
-          unless (= i pos)
-            collect elm))
+  (loop for i from start-pos
+        for elm in list
+        unless (= i pos)
+          collect elm))
 
 (defun delete-from-pos-on-level (list pos level &key (start-pos 0) (start-level 1))
-    (if (= level start-level)
-        (delete-from-pos list pos)
-        (loop for elm in list
-              collect (delete-from-pos-on-level list
-                                                pos
-                                                (1- level)
-                                                :start-pos start-pos
-                                                :start-level start-level))))
+  (if (= level start-level)
+      (delete-from-pos list pos)
+      (loop for elm in list
+            collect (delete-from-pos-on-level list
+                                              pos
+                                              (1- level)
+                                              :start-pos start-pos
+                                              :start-level start-level))))
 
 (defun task-2 (list pos level)
-    (delete-from-pos-on-level list
-                              pos
-                              level
-                              :start-pos 1
-                              :start-level 1))
+  (delete-from-pos-on-level list
+                            pos
+                            level
+                            :start-pos 1
+                            :start-level 1))
