@@ -3,7 +3,7 @@
   :author "Filipp Druan"
   :license "MIT"
   :description "The tasks for Basealt"
-  :depends-on (:parachute :alexandria)
+  :depends-on (:parachute :alexandria :cl-ic)
   :components ((:file "package")
                (:file "task-1")
                (:file "task-2")
