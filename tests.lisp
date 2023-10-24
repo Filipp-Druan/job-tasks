@@ -78,4 +78,9 @@
 (define-test task-3
   (is ~=
       (S-etalon 5)
-      (task-3 5 10000)))
+      (task-3 0.5 10000)))
+
+(defun test-all ()
+  (test 'task-1)
+  (test 'task-2)
+  (test 'task-3))
