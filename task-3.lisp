@@ -40,7 +40,6 @@ body — тело цикла — одно или несколько выраже
                 (* 2/6
                    (expt x 2)))))
     (do-range (3 n i)
-      (ic:ic sum)
       (incf sum (* (expt -1 (1+ i))
                    (/ (top-seq i)
                       (bottom-seq i))

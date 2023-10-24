@@ -16,8 +16,7 @@
   "The function takes a tree and a path to an element (the path is a list of car and cdr). Returns the element to which the path leads."
   (let ((res tree))
     (loop for f in path
-          do (ic res)
-             (setf res (funcall f res)))
+          do (setf res (funcall f res)))
     res))
 
 
